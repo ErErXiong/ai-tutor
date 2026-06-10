@@ -14,3 +14,5 @@ Thumbs.db
 # Env
 *.log
 *.env
+# Local dev scripts (may contain secrets)
+run.bat
