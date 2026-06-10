@@ -1,8 +1,14 @@
 @echo off
-REM 复制此文件为 run.bat，填入你的百炼 API Key
+REM ==========================================
+REM   AI Tutor 启动脚本
+REM   运行前：用编辑器打开此文件，替换 Key
+REM ==========================================
 set AI_DASHSCOPE_API_KEY=your-api-key-here
+
 echo ========================================
-echo   AI Tutor - 启动中...
+echo   AI Tutor 启动中...
 echo   访问: http://localhost:8080/chat?message=你好
 echo ========================================
-"C:\Program Files\gradle-9.5.1\bin\gradle.bat" bootRun --no-daemon -q
+
+cd /d "%~dp0"
+"C:\Program Files\gradle-9.5.1\bin\gradle.bat" bootRun --no-daemon
