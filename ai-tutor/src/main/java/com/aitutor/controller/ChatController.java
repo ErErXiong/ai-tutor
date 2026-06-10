@@ -5,19 +5,18 @@ import org.springframework.ai.chat.messages.SystemMessage;
 import org.springframework.ai.chat.messages.UserMessage;
 import org.springframework.ai.chat.model.ChatModel;
 import org.springframework.ai.chat.prompt.Prompt;
+import org.springframework.ai.chat.prompt.PromptTemplate;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import reactor.core.publisher.Flux;
 
 import java.util.List;
 import java.util.Map;
 
-/**
- * Day 1 - 首个对话控制器
- * 核心抽象：ChatClient、ChatModel、Prompt、Message
- */
 @RestController
 public class ChatController {
 
@@ -31,10 +30,8 @@ public class ChatController {
         this.chatModel = chatModel;
     }
 
-    /**
-     * ChatClient 同步对话
-     * GET /chat?message=什么是Spring AI
-     */
+    // ==================== Day 1 产出 ====================
+
     @GetMapping("/chat")
     public String chat(@RequestParam String message) {
         return chatClient.prompt()
@@ -43,10 +40,6 @@ public class ChatController {
                 .content();
     }
 
-    /**
-     * ChatModel 底层对话（手动组装 Prompt + Message）
-     * GET /chat/raw?message=什么是RAG
-     */
     @GetMapping("/chat/raw")
     public String chatRaw(@RequestParam String message) {
         Prompt prompt = new Prompt(List.of(
@@ -57,9 +50,32 @@ public class ChatController {
                 .getResult().getOutput().getText();
     }
 
-    /**
-     * 统一异常处理，返回友好错误信息
-     */
+    // ==================== Day 2 产出 ====================
+
+    @GetMapping(value = "/chat/stream", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+    public Flux<String> chatStream(@RequestParam String message) {
+        return chatClient.prompt()
+                .user(message)
+                .stream()
+                .content();
+    }
+
+    @GetMapping("/chat/template")
+    public String chatWithTemplate(
+            @RequestParam String role,
+            @RequestParam String method,
+            @RequestParam String question
+    ) {
+        PromptTemplate template = new PromptTemplate("你是一位{role}导师，擅长用{method}教学。请回答：{question}");
+        template.add("role", role);
+        template.add("method", method);
+        template.add("question", question);
+        return chatModel.call(template.create())
+                .getResult().getOutput().getText();
+    }
+
+    // ==================== 异常处理 ====================
+
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Map<String, String>> handleException(Exception e) {
         return ResponseEntity.internalServerError().body(Map.of(
