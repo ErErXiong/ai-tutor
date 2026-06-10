@@ -1,41 +1,32 @@
-# AI Tutor 项目 AGENTS.md
+# AI Tutor 椤圭洰 AGENTS.md
 
-## 项目信息
-- 项目：AI学习导师（Spring AI Alibaba 多Agent协作教学系统）
-- 技术栈：Spring Boot 3.4.x + Spring AI Alibaba 1.1.2.x + 通义千问 + Gradle
-- JDK 17+，Gradle：C:\Program Files\gradle-9.5.1\bin\gradle.bat
-- API Key：环境变量 AI_DASHSCOPE_API_KEY 或 run.bat 中设置
+## 椤圭洰淇℃伅
+- 椤圭洰锛欰I瀛︿範瀵煎笀锛圫pring AI Alibaba 澶欰gent鍗忎綔鏁欏绯荤粺锛?- 鎶€鏈爤锛歋pring Boot 3.4.x + Spring AI Alibaba 1.1.2.x + 閫氫箟鍗冮棶 + Gradle
+- JDK 17+锛孏radle锛欳:\Program Files\gradle-9.5.1\bin\gradle.bat
+- API Key锛氱幆澧冨彉閲?AI_DASHSCOPE_API_KEY 鎴?run.bat 涓缃?
+## 杩涘害绠＄悊锛堝己鍒讹級
+- 浠诲姟寮€濮嬪墠锛氬厛璇诲彇 docs/PROGRESS.md 鑾峰彇褰撳墠杩涘害
+- 浠诲姟缁撴潫鏃讹細鏇存柊 docs/PROGRESS.md 鏍囪瀹屾垚鐘舵€佸拰浜у嚭
+- 閫熻鍗★細鍐欏叆 docs/daily/YYYY-MM-DD.md
 
-## 进度管理（强制）
-- 任务开始前：先读取 docs/PROGRESS.md 获取当前进度
-- 任务结束时：更新 docs/PROGRESS.md 标记完成状态和产出
-- 速记卡：写入 docs/daily/YYYY-MM-DD.md
+## 瀛︿範妯″紡锛堜弗鏍奸伒寰級
+1. STEP 0 澶嶄範鎶芥煡 (10min)锛氶€熼棶閫熺瓟+闈㈣瘯妯℃嫙锛岄棿闅?/3/7澶?2. STEP 1 鏂扮煡璇嗚瑙?(20min)锛氱被姣斺啋娴佺▼鍥锯啋婧愮爜锛屾爣娉ㄩ」鐩惤鍦颁綅缃?3. STEP 2 鎵嬪啓琛ュ叏 (40min)锛氬厛缂栬瘧楠岃瘉閫氳繃锛屽啀娉ㄩ噴鏍稿績閫昏緫鐢?TODO 鏍囪
+   - 鏍煎紡锛?/ TODO [W1D2-浠诲姟1]: 璇存槑 // 鎻愮ず锛歺xx
+   - 琛ュ厖锛氫綘鍐?Spec锛堢洰鏍?绾︽潫+楠屾敹锛夆啋 鍙戠粰 Codex 鐪嬪畠鎬庝箞瀹炵幇 鈫?瀵规瘮浣犳墜鍐欑殑
+4. STEP 3 瀹℃煡鏍″噯 + Codex 鍙屽鏌?(15min)
+   - AI(鎴?瀹℃煡锛氶€昏緫銆侀鏍笺€佸畨鍏ㄣ€佽璁℃ā寮?   - Codex 瀹℃煡锛氬悓涓€娈典唬鐮佷涪缁?Codex 瀹℃煡 鈫?浣犲姣斾袱浠芥姤鍛?   - 瀛?AI鑳藉彂鐜颁粈涔堬紝鍙戠幇涓嶄簡浠€涔?
+   - 涓嶆噦灏卞仠锛屾繁璁插埌搴?5. STEP 4 闈㈣瘯浜旇繛闂?(10min)锛氣憼鏄粈涔?鈶¤В鍐充粈涔?鈶㈠師鐞?鈶ｅ姣?鈶よ俯鍧?6. STEP 5 Git鎻愪氦 (10min)
+   - 璁?Codex 甯綘鍐?commit message锛屼綘瀹℃煡淇敼
+   - 鏍煎紡锛歔W1D2] feat: xxx锛実it add -p鍒嗗潡鎻愪氦
+7. STEP 6 褰撳ぉ閫熻鍗″啓鍏?docs/daily/
 
-## 学习模式（严格遵循）
-1. STEP 0 复习抽查 (10min)：速问速答+面试模拟，间隔1/3/7天
-2. STEP 1 新知识讲解 (20min)：类比→流程图→源码，标注项目落地位置
-3. STEP 2 手写补全 (40min)：先编译验证通过，再注释核心逻辑用 TODO 标记
-   - 格式：// TODO [W1D2-任务1]: 说明 // 提示：xxx
-   - 补充：你写 Spec（目标+约束+验收）→ 发给 Codex 看它怎么实现 → 对比你手写的
-4. STEP 3 审查校准 + Codex 双审查 (15min)
-   - AI(我)审查：逻辑、风格、安全、设计模式
-   - Codex 审查：同一段代码丢给 Codex 审查 → 你对比两份报告
-   - 学"AI能发现什么，发现不了什么"
-   - 不懂就停，深讲到底
-5. STEP 4 面试五连问 (10min)：①是什么 ②解决什么 ③原理 ④对比 ⑤踩坑
-6. STEP 5 Git提交 (10min)
-   - 让 Codex 帮你写 commit message，你审查修改
-   - 格式：[W1D2] feat: xxx，git add -p分块提交
-7. STEP 6 当天速记卡写入 docs/daily/
-
-## Codex 使用训练（贯穿全程）
-- 你写 Spec → Codex 实现 → 你审查（你当架构师，Codex 当执行者）
-- 编译报错 → 先丢给 Codex 分析 → 再自己修（学用 AI 调试）
-- 同一段代码 → 我审查 + Codex 审查 → 你对比两份报告
-- Git commit → Codex 写 message → 你审查修改
-
-## 核心原则
-- 三线合一：学知识+面面试+出项目，所有代码在工程中生长
-- 项目代码：搭骨架→验证通过→注释核心→用户手写补全
-- 与项目无关的代码不写入工程
-- 用户说不会立即停住深讲，不带问号往前走
+## Codex 浣跨敤璁粌锛堣疮绌垮叏绋嬶級
+- 浣犲啓 Spec 鈫?Codex 瀹炵幇 鈫?浣犲鏌ワ紙浣犲綋鏋舵瀯甯堬紝Codex 褰撴墽琛岃€咃級
+- 缂栬瘧鎶ラ敊 鈫?鍏堜涪缁?Codex 鍒嗘瀽 鈫?鍐嶈嚜宸变慨锛堝鐢?AI 璋冭瘯锛?- 鍚屼竴娈典唬鐮?鈫?鎴戝鏌?+ Codex 瀹℃煡 鈫?浣犲姣斾袱浠芥姤鍛?- Git commit 鈫?Codex 鍐?message 鈫?浣犲鏌ヤ慨鏀?
+## 鏍稿績鍘熷垯
+- 涓夌嚎鍚堜竴锛氬鐭ヨ瘑+闈㈤潰璇?鍑洪」鐩紝鎵€鏈変唬鐮佸湪宸ョ▼涓敓闀?- 椤圭洰浠ｇ爜锛氭惌楠ㄦ灦鈫掗獙璇侀€氳繃鈫掓敞閲婃牳蹇冣啋鐢ㄦ埛鎵嬪啓琛ュ叏
+- 涓庨」鐩棤鍏崇殑浠ｇ爜涓嶅啓鍏ュ伐绋?- 鐢ㄦ埛璇翠笉浼氱珛鍗冲仠浣忔繁璁诧紝涓嶅甫闂彿寰€鍓嶈蛋
+## 安全红线
+- API Key 绝不写入任何会被 Git 跟踪的文件
+- 只通过环境变量或 run.bat（已 gitignore）传入
+- 提交前检查 git diff --cached 确认无敏感信息
